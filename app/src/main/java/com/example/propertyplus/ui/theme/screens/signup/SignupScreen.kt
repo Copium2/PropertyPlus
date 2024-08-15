@@ -28,8 +28,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
@@ -40,13 +42,17 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
 import com.example.propertyplus.navigation.ROUT_DETAIL
+import com.example.propertyplus.navigation.ROUT_LOGIN
+import com.example.propertyplus.navigation.data.AuthViewModel
 import com.example.propertyplus.ui.theme.NewGreen
 import androidx.compose.ui.tooling.preview.Preview as Preview
 
 @Composable
 fun SignupScreen(navController: NavController){
 
-    Column(modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+    Column(modifier = androidx.compose.ui.Modifier
+        .fillMaxSize()
+        .paint(painterResource(id = R.drawable.bg), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally)
 
         {
@@ -90,8 +96,8 @@ fun SignupScreen(navController: NavController){
 
             OutlinedTextField(
                 value = email,
-                onValueChange ={name=email},
-                label = { Text(text = "email Address")},
+                onValueChange ={email=it},
+                label = { Text(text = "Email Address")},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp),
@@ -104,14 +110,14 @@ fun SignupScreen(navController: NavController){
 
             OutlinedTextField(
                 value = password,
-                onValueChange ={name=password},
+                onValueChange ={password=it},
                 label = { Text(text = "Password")},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp),
                 leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "")},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                visualTransformation = PasswordVisualTransformation
+                visualTransformation = PasswordVisualTransformation()
 
             )
 
@@ -120,21 +126,23 @@ fun SignupScreen(navController: NavController){
 
             OutlinedTextField(
                 value = confpassword,
-                onValueChange ={name=it},
+                onValueChange ={confpassword=it},
                 label = { Text(text = "confirm Password")},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp),
                 leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "")},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                visualTransformation = PasswordVisualTransformation
+                visualTransformation = PasswordVisualTransformation()
             )
 
             Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
 
+            val context = LocalContext.current
+            val authViewModel = AuthViewModel(navController, context)
 
             Button(
-                onClick = { navController.navigate(ROUT_DETAIL)},
+                onClick = {  authViewModel.signup(name, email, password,confpassword)},
                 modifier = androidx.compose.ui.Modifier
                     .fillMaxWidth()
                     .height(50.dp)
@@ -146,8 +154,10 @@ fun SignupScreen(navController: NavController){
                 Text(text = "Register")
             }
 
+            Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
+
             Button(
-                onClick = { },
+                onClick = {navController.navigate(ROUT_LOGIN) },
                 modifier = androidx.compose.ui.Modifier
                     .fillMaxWidth()
                     .height(50.dp)

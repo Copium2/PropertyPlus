@@ -27,6 +27,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.PropertyPlus.ui.theme.screens.home.image
 import com.example.propertyplus.R
 import com.example.propertyplus.navigation.ROUT_HOME
+import com.example.propertyplus.navigation.ROUT_LOGIN
 import com.example.propertyplus.ui.theme.NewOrange
 import com.example.propertyplus.ui.theme.Purple40
 import kotlinx.coroutines.CoroutineScope
@@ -49,7 +50,7 @@ fun Splashscreen(navController: NavController) {
      val coroutineScope = rememberCoroutineScope()
      coroutineScope.launch {
          delay(2000)
-         navController.navigate(ROUT_HOME)
+         navController.navigate(ROUT_LOGIN)
      }
         //Lottie animation
 
