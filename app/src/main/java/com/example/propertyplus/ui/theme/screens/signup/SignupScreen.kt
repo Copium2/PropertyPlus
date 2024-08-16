@@ -43,7 +43,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
 import com.example.propertyplus.navigation.ROUT_DETAIL
 import com.example.propertyplus.navigation.ROUT_LOGIN
-import com.example.propertyplus.navigation.data.AuthViewModel
+import com.example.propertyplus.data.AuthViewModel
 import com.example.propertyplus.ui.theme.NewGreen
 import androidx.compose.ui.tooling.preview.Preview as Preview
 

@@ -12,6 +12,8 @@ import com.example.propertyplus.ui.theme.intent.intentscreen
 import com.example.propertyplus.ui.theme.screens.dashboard.DashboardScreen
 import com.example.propertyplus.ui.theme.screens.details.DetailsScreen
 import com.example.propertyplus.ui.theme.screens.login.LoginScreen
+import com.example.propertyplus.ui.theme.screens.products.AddProductsScreen
+import com.example.propertyplus.ui.theme.screens.products.ViewProductsScreen
 import com.example.propertyplus.ui.theme.screens.property.propertyscreen
 import com.example.propertyplus.ui.theme.screens.signup.SignupScreen
 import com.example.propertyplus.ui.theme.screens.splash.Splashscreen
@@ -67,5 +69,14 @@ fun AppNavHost(
             DashboardScreen(navController =  navController)
 
         }
+
+        composable(ADD_PRODUCTS_URL) {
+        AddProductsScreen(navController = navController)
+       }
+        composable(VIEW_PRODUCTS_URL) {
+        ViewProductsScreen(navController = navController)
+       }
+
+
     }
 }

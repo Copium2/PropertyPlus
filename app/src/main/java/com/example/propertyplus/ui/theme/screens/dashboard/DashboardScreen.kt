@@ -32,8 +32,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
+import com.example.propertyplus.navigation.ADD_PRODUCTS_URL
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_PROPERTY
+import com.example.propertyplus.navigation.VIEW_PRODUCTS_URL
 import com.example.propertyplus.ui.theme.NewGrey
 import com.example.propertyplus.ui.theme.NewOrange
 import com.example.propertyplus.ui.theme.NewYellow
@@ -89,7 +91,10 @@ fun DashboardScreen(navController: NavController){
                 colors = CardDefaults.cardColors(NewGrey)
             ){
                 //Row1
-                Row(modifier = Modifier.padding(20.dp)) {
+                Row(modifier = Modifier
+                    .padding(20.dp)
+                    .clickable { ADD_PRODUCTS_URL }
+                ) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
@@ -247,7 +252,8 @@ fun DashboardScreen(navController: NavController){
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { navController.navigate(ADD_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(10.dp), ) {
                         Column {
                             Spacer(modifier = androidx.compose.ui.Modifier.height(15.dp))
@@ -255,14 +261,14 @@ fun DashboardScreen(navController: NavController){
                             Box(
                                 modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.img_1),
+                                    painter = painterResource(id = R.drawable.property),
                                     contentDescription = "home",
                                     modifier = Modifier.size(100.dp)
                                 )
                             }
 
                             Text(
-                                text = "Profile.",
+                                text = "Add Property",
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 color = Color.DarkGray,
@@ -280,7 +286,8 @@ fun DashboardScreen(navController: NavController){
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { VIEW_PRODUCTS_URL },
                         elevation = CardDefaults.cardElevation(10.dp),) {
                         Column {
                             Spacer(modifier = androidx.compose.ui.Modifier.height(15.dp))
@@ -289,7 +296,7 @@ fun DashboardScreen(navController: NavController){
                                 modifier = Modifier.fillMaxWidth(),
                                 contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.img_1),
+                                    painter = painterResource(id = R.drawable.property),
                                     contentDescription = "home",
                                     modifier = Modifier.size(100.dp)
 
@@ -297,7 +304,7 @@ fun DashboardScreen(navController: NavController){
                             }
 
                             Text(
-                                text = "Home.",
+                                text = "View Property",
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 color = Color.DarkGray,
@@ -305,24 +312,14 @@ fun DashboardScreen(navController: NavController){
                                 textAlign = TextAlign.Center
 
                             )
-
                         }
                     }
-
                     //End of Card
-
                 }
                 //End of Row 3
-
-
-
-
-
-
             }
-              }
 
-
+        }
 
     }
 

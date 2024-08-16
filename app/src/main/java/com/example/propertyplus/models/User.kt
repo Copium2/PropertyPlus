@@ -1,4 +1,4 @@
-package com.example.propertyplus.navigation.models
+package com.example.propertyplus.models
 
 class User {
 

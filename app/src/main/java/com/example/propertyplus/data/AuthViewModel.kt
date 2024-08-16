@@ -1,4 +1,4 @@
-package com.example.propertyplus.navigation.data
+package com.example.propertyplus.data
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -11,7 +11,7 @@ import com.example.propertyplus.navigation.ROUT_DASHBOARD
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_LOGIN
 import com.example.propertyplus.navigation.ROUT_SignupScreen
-import com.example.propertyplus.navigation.models.User
+import com.example.propertyplus.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
