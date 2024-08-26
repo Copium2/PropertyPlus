@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "914486124699",
-    "project_id": "propertyplus-2a3d9",
-    "storage_bucket": "propertyplus-2a3d9.appspot.com"
+    "project_id": "safirikenya-2a3d9",
+    "storage_bucket": "safirikenya-2a3d9.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:914486124699:android:279d2ae899fc4d3d1e263e",
         "android_client_info": {
-          "package_name": "com.example.propertyplus"
+          "package_name": "com.example.safirikenya"
         }
       },
       "oauth_client": [],

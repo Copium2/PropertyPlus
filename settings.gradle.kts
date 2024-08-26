@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PropertyPlus"
+rootProject.name = "SafiriKenya"
 include(":app")
  

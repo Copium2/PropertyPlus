@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.propertyplus"
+    namespace = "com.example.safirikenya"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.propertyplus"
+        applicationId = "com.example.safirikenya"
         minSdk = 23
         targetSdk = 34
         versionCode = 1
